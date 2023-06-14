@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+:root {
+	--ScissorsGradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
+	--PaperGradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
+	--RockGradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
+	--LizardGradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+	--Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+
+	/* ### Neutral */
+
+	--DarkText: hsl(229, 25%, 31%);
+	--ScoreText: hsl(229, 64%, 46%);
+	--HeaderOutline: hsl(217, 16%, 45%);
+
+	/* ### Background */
+
+	--RadialGradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+
+	/* ## Fonts */
+
+	/* - Family: [Barlow Semi Condensed](https://fonts.google.com/specimen/Barlow+Semi+Condensed) */
+	--fw-medium: 600;
+	--fw-bold: 700;
+	box-sizing: border-box;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+#app {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+button {
+  background-color: transparent;
+  border: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+main {
+  background-image: radial-gradient(25em at 100% 0%, var(--RadialGradient));
+  min-height: 100vh;
+  padding: 1em;
+}
+/* @media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+} */
