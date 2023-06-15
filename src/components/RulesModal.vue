@@ -1,5 +1,8 @@
 <template>
-	<section class="modal">
+	<section 
+	class="modal"
+	@click.prevent.self="closeModal"
+	>
 		<section class="modal__contents">
       <h1 class="heading--modal">Rules</h1>
 
@@ -28,6 +31,7 @@ const closeModal = () => {
 	width: 100vw;
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 99;
 }
 .modal__contents {
 	width: 100%;

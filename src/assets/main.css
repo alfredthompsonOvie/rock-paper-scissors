@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
 
 :root {
-	--ScissorsGradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
-	--PaperGradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
-	--RockGradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
-	--LizardGradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+	--ScissorsGradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+	--PaperGradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+	--RockGradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+	--LizardGradient: hsl(261, 73%, 60%), hsl(261, 72%, 63%);
 	--Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
 
 	/* ### Neutral */
@@ -39,6 +39,7 @@
 button {
   background-color: transparent;
   border: 0;
+	cursor: pointer;
 }
 img {
   max-width: 100%;
@@ -48,6 +49,19 @@ main {
   background-image: radial-gradient(25em at 100% 0%, var(--RadialGradient));
   min-height: 100vh;
   padding: 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+.btn--rules {
+	/* border: 2px solid var(--HeaderOutline); */
+	border: 2px solid #fff;
+	padding: 1em 3em;
+	text-transform: uppercase;
+	color: #fff;
+	border-radius: 8px;
+	font-weight: var(--fw-medium);
 }
 /* @media (min-width: 1024px) {
   body {
@@ -61,3 +75,85 @@ main {
     padding: 0 2rem;
   }
 } */
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all .4s linear;
+}
+
+.chooseYourWeapon {
+	max-width: 800px;
+	width: 100%;
+	min-height: 300px;
+	height: 100%;
+	background-image: url("./images/bg-triangle.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: flex;
+	justify-content: center;
+	gap: 2em;
+	flex-wrap: wrap;
+	/* align-items: center; */
+}
+.btn {
+	width: 10em;
+	height: 10em;
+	border-radius: 50%;
+	position: relative;
+	/* z-index: 2; */
+	border: none;
+}
+.btn::before {
+	border: none;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	content: "";
+	position: absolute;
+	top: 5px;
+	left: 0;
+}
+.btn--paper {
+	background-image: linear-gradient(to bottom, var(--PaperGradient));
+}
+.btn--paper::before {
+	border-bottom: 2px solid hsl(230, 89%, 62%);
+}
+.btn--scissors {
+	background-image: linear-gradient(to bottom, var(--ScissorsGradient));
+	/* box-shadow: 0px 5px 0px .5px hsl(39, 89%, 49%); */
+}
+.btn--scissors::before {
+	border-bottom: 2px solid hsl(39, 89%, 49%);
+}
+.btn--rock {
+	background-image: linear-gradient(to bottom, var(--RockGradient));
+}
+.btn--rock::before {
+	border-bottom: 2px solid hsl(349, 71%, 52%);
+}
+.btn--imgContainer {
+	background-color: #fff;
+	width: 8em;
+	height: 8em;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	z-index: 3;
+}
+.btn--imgContainer::before {
+	border: none;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	content: "";
+	position: absolute;
+	top: 0px;
+	left: 0;
+	border-top: 5px solid rgba(0, 0, 0, 0.2);
+}
