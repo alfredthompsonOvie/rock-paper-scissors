@@ -3,28 +3,8 @@
 		<!-- scoreboard -->
 		<ScoreBoard />
 
-		<!-- interaction -->
-		<section>
-			<div class="chooseYourWeapon">
-				<button class="btn btn--paper">
-					<span class="btn--imgContainer">
-						<img src="@/assets/images/icon-paper.svg" alt="paper" />
-					</span>
-				</button>
-
-				<button class="btn btn--scissors">
-					<span class="btn--imgContainer">
-						<img src="@/assets/images/icon-scissors.svg" alt="paper" />
-					</span>
-				</button>
-
-				<button class="btn btn--rock">
-					<span class="btn--imgContainer">
-						<img src="@/assets/images/icon-rock.svg" alt="paper" />
-					</span>
-				</button>
-			</div>
-		</section>
+		<!-- Arena -->
+		<TriangleArena />
 
 		<!-- Rules -->
 		<button type="button" class="btn--rules" @click.prevent="showModal = true">
@@ -41,6 +21,7 @@
 import { ref } from "vue";
 import RulesModal from "./components/RulesModal.vue";
 import ScoreBoard from "./components/ScoreBoard.vue";
+import TriangleArena from "./components/TriangleArena.vue";
 
 const showModal = ref(false);
 </script>
