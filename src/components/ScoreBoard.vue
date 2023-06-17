@@ -18,7 +18,7 @@
 
 <style scoped>
 .scoreBoard {
-  padding: 1em;
+  padding: .5em;
   border: 3px solid var(--HeaderOutline);
   max-width: 700px;
   width: 100%;

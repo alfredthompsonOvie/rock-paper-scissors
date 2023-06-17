@@ -14,6 +14,8 @@
 
 	/* ### Background */
 	--RadialGradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
+	--circle1: hsl(214, 47%, 23%);
+	--circle2: hsl(237, 49%, 15%);
 
 	--fw-medium: 600;
 	--fw-bold: 700;
@@ -41,7 +43,7 @@ img {
   height: auto;
 }
 main {
-  background-image: radial-gradient(25em at 100% 0%, var(--RadialGradient));
+  background-image: radial-gradient(50em at 50% 0%, var(--RadialGradient));
   min-height: 100vh;
   padding: 1em;
 	display: flex;
@@ -134,14 +136,45 @@ main {
 .btn:active .btn--imgContainer {
 	box-shadow: none;
 }
-.weapon {
+.weaponImg {
 	width: clamp(2.3em, 10vw + 1em, 3.9em);
 }
 .yourDestiny {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, auto);
 	gap: 2em;
+	row-gap: 3.5em;
+	/* border: 1px solid; */
+}
+.selectedWeapon {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	align-items: center;
+}
+.player {
+	grid-column: 1;
+	grid-row: 1;
+}
+.Ai {
+	grid-column: 2;
+	grid-row: 1;
+	/* background-image: radial-gradient(25em at 100% 0%, var(--RadialGradient)); */
+}
+
+/* .winner .bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40em;
+	height: 40em;
+	border-radius: 50%;
+	background-image: repeating-radial-gradient(circle, var(--circle2) 0, var(--circle1) 6em, var(--circle2) .1em, var(--circle1) .1em); 
+}	 */
+.results {
+	grid-column: 1/-1;
+	grid-row: 2;
 }
 .yourDestiny p {
 	text-transform: uppercase;
@@ -149,9 +182,23 @@ main {
 	color: #fff;
 	letter-spacing: 1px;
 }
-.player--choice, .Ai--choice {
+/* .player--choice, .Ai--choice {
 	font-size: .9rem;
 	margin-top: 2em;
+} */
+
+/* .selectedWeapon::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	background-image: repeating-radial-gradient(circle, var(--circle1) 0, var(--circle2) 1em, var(--circle1) 1em, var(--circle2) 2em);
+} */
+.selectedWeapon p {
+	font-size: .8rem;
 }
 .results {
 	text-align: center;
@@ -165,6 +212,9 @@ p.resultDeclaration {
 	padding: 1em 3em;
 	margin-top: 1em;
 	border-radius: 8px;
+	text-transform: uppercase;
+	font-weight: var(--fw-medium);
+	font-size: .9rem;
 
 }
 @media (min-width: 375px) {
@@ -184,4 +234,43 @@ p.resultDeclaration {
 	/* .weapon {
 		width: initial;
 	} */
+}
+@media (min-width: 600px) {
+	main {
+		padding-inline: 2em;
+	}
+	.yourDestiny {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
+		gap: 1em;
+		row-gap: 0em;
+		align-items: center;
+	}
+	.Ai {
+		grid-column: 3;
+		grid-row: 1;
+	}
+	.results {
+		grid-column: 2;
+		grid-row: 1;
+	}
+	.selectedWeapon {
+		flex-direction: column-reverse;
+	}
+	p.resultDeclaration {
+		font-size: 2rem;
+	}
+	.btn--rules {
+		/* border: 2px solid var(--HeaderOutline); */
+		border: 2px solid #fff;
+		padding: 1em 3em;
+		text-transform: uppercase;
+		color: #fff;
+		border-radius: 8px;
+		font-weight: var(--fw-medium);
+		/* text-align: right; */
+
+		margin-left: auto;
+	}
 }

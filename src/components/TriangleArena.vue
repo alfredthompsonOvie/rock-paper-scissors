@@ -7,7 +7,7 @@
 			ref="paper"
 			>
 				<span class="btn--imgContainer">
-					<img src="@/assets/images/icon-paper.svg" alt="paper" class="weapon"/>
+					<img src="@/assets/images/icon-paper.svg" alt="paper" class="weaponImg"/>
 				</span>
 			</button>
 
@@ -17,7 +17,7 @@
 			ref="scissors"
 			>
 				<span class="btn--imgContainer">
-					<img src="@/assets/images/icon-scissors.svg" alt="paper" class="weapon"/>
+					<img src="@/assets/images/icon-scissors.svg" alt="paper" class="weaponImg"/>
 				</span>
 			</button>
 
@@ -27,13 +27,12 @@
 			ref="rock"
 			>
 				<span class="btn--imgContainer">
-					<img src="@/assets/images/icon-rock.svg" alt="paper" class="weapon"/>
+					<img src="@/assets/images/icon-rock.svg" alt="paper" class="weaponImg"/>
 				</span>
 			</button>
 		</div>
 		<div class="yourDestiny" v-else>
-			<!-- display flex jcc gap3em -->
-			<section class="player">
+			<section class="player selectedWeapon winner">
 				<button 
 				class="btn"
 				:class="`btn--${playerChoice}`"
@@ -41,22 +40,23 @@
 				ref="paper"
 				>
 					<span class="btn--imgContainer">
-						<img :src="`${getImage(playerChoice)}`" alt="paper" class="weapon"/>
+						<img :src="`${getImage(playerChoice)}`" alt="paper" class="weaponImg"/>
 					</span>
 				</button>
 				<p class="player--choice">You Picked</p>
+				<!-- <div class="bg"></div> -->
 			</section>
 
 			<section class="results">
 				<p class="resultDeclaration">you {{ result }}</p>
 				<button
 				type="button"
-				@click.prevent=""
+				@click.prevent="playAgain"
 				class="btn--reset"
 				>play again</button>
 			</section>
 
-			<section class="Ai">
+			<section class="Ai selectedWeapon">
 				<button 
 				class="btn"
 				:class="`btn--${computerChoice}`"
@@ -64,13 +64,11 @@
 				ref="scissors"
 				>
 					<span class="btn--imgContainer">
-						<img :src="`${getImage(computerChoice)}`" alt="paper" class="weapon"/>
+						<img :src="`${getImage(computerChoice)}`" alt="paper" class="weaponImg"/>
 					</span>
 				</button>
 				<p class="Ai--choice">The House Picked</p>
 			</section>
-
-
 		</div>
 	</section>
 </template>
@@ -127,6 +125,11 @@ const declareWinner = (weapon) => {
 }
 function getImage(name) {
 	return new URL(`/src/assets/images/icon-${name}.svg`, import.meta.url).href
+}
+const playAgain = () => {
+	isWeaponSelected.value = false;
+	playerChoice.value = '';
+	computerChoice.value = '';
 }
 </script>
 
