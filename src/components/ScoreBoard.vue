@@ -53,7 +53,7 @@ watch(props, () => {
 .scoreBoard {
   padding: .5em;
   border: 3px solid var(--HeaderOutline);
-  max-width: 700px;
+  max-width: 500px;
   width: 100%;
   margin-inline: auto;
   border-radius: 8px;
@@ -62,6 +62,8 @@ watch(props, () => {
   align-items: center;
   flex-wrap: wrap;
   gap: 1em;
+  position: relative;
+  z-index: 10;
 }
 .heading--scoreBoard {
   color: #fff;

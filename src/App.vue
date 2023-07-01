@@ -3,7 +3,8 @@
 		<!-- select game level -->
 		<section class="cover" v-if="showCover">
 			<section class="cover__content">
-				<h1>game mode</h1>
+				<h1>Rock Paper Scissors</h1>
+				<p>game mode</p>
 				<section>
 					<button 
 					type="button"

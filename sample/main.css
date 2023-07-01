@@ -89,7 +89,6 @@ main {
   background-image: radial-gradient(50em at 50% 0%, var(--RadialGradient));
   min-height: 100vh;
   padding: 1em;
-	padding-top: 2.5em;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -138,13 +137,11 @@ main {
 /* .fade__group-enter-move {
 	opacity: 0;
 } */
-.triangleArena {
-	margin-top: 2em;
-}
+
 .chooseYourWeapon {
-	max-width: 600px;
+	max-width: 400px;
 	width: 100%;
-	min-height: 300px;
+	/* min-height: 300px; */
 	height: 100%;
 	background-image: url("./images/bg-triangle.svg");
 	background-position: center;
@@ -156,13 +153,6 @@ main {
 	flex-wrap: wrap;
 	/* border: 1px solid; */
 	/* align-items: center; */
-	/* background-size: 80%; */
-	/* background-color: red; */
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, auto);
-	gap: 2em;
-	justify-content: center;
 }
 .btn {
 	width: clamp(8em, 28vw, 12em);
@@ -171,27 +161,18 @@ main {
 	position: relative;
 	border: none;
 	transition: all .3s linear;
-	z-index: 10;
-
 }
 
 .btn--paper {
-	grid-column: 1;
-	grid-row: 1;
 	background-image: linear-gradient(to bottom, var(--PaperGradient));
 	box-shadow: 0 10px 1px -3px rgb(27, 51, 171);
 }
 
 .btn--scissors {
-	grid-column: 2;
-	grid-row: 1;
 	background-image: linear-gradient(to bottom, var(--ScissorsGradient));
 	box-shadow: 0px 10px 1px -3px hsl(39, 95%, 31%);
 }
 .btn--rock {
-	grid-column: 1/-1;
-	grid-row: 2;
-	justify-self: center;
 	background-image: linear-gradient(to bottom, var(--RockGradient));
 	box-shadow: 0px 10px 1px -3px hsl(349, 68%, 33%);
 }
@@ -206,20 +187,24 @@ main {
 	box-shadow:inset 0px 10px 1px -4px rgba(0, 0, 0, 0.2);
 	transition: all .3s linear;
 }
+.btn--selectedWeapon {
+	z-index: 10;
+}
 .selectedWeapon--btn__container {
 	position: relative;
 	/* background-color: red; */
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: auto;
+	/* justify-content: center;
+	align-items: center; */
 	place-content: center;
 }
 .selectedWeapon--btn__container .btn {
 	grid-column: 1;
 	grid-row: 1;
 }
-/* winner */
-.winner .circle__container {
+.circle__container {
 	width: 10em;
 	height: 10em;
 	position: absolute;
@@ -229,44 +214,59 @@ main {
 	grid-template-rows: auto;
 	place-content: center;
 }
-.winner .circle {
+.circle {
 	grid-column: 1;
 	grid-row: 1;
 
 	background-color: var(--HeaderOutline);
 	margin: auto;
-	border-radius: 50%;
 }
-.winner .circle--sm {
-	width: clamp(10em, 28vw, 15em);
-	height: clamp(10em, 28vw, 15em);
+.circle--sm {
+
+	width: clamp(10em, 28vw, 13em);
+	height: clamp(10em, 28vw, 13em);
+	border-radius: 50%;
 	z-index: 3;
 	opacity: .4;
-}
-.winner .circle--md {
-	width: clamp(8em, 32vw, 22em);
-	height: clamp(8em, 32vw, 22em);
 
+	/* background-color: yellow; */
+}
+.circle--md {
+	width: clamp(8em, 32vw, 25em);
+	height: clamp(8em, 32vw, 25em);
+	/* width: 15em;
+	height: 15em; */
+	/* background-color: aqua; */
+	border-radius: 50%;
 	z-index: 2;
 	opacity: .2;
 }
-.winner .circle--lg {
+.circle--lg {
 	width: clamp(8em, 40vw, 30em);
 	height: clamp(8em, 40vw, 30em);
-
+	/* width: 17em;
+	height: 17em; */
+	/* background-color: green; */
+	border-radius: 50%;
 	z-index: 1;
 	opacity: .1;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
-
-/* .aiBg {
+.selection__base {
+	width: 5em;
+	height: 5em;
+	border-radius: 50%;
+	background-color: var(--circle2);
+	margin: auto 0;
+}
+.aiBg {
 	background-color: var(--DarkText);
 	width: 5em;
 	height: 5em;
 	border-radius: 50%;
 	display: inline-block;
-} */
+}
 .btn:active {
 	box-shadow: none;
 	transform: translateY(2px);
@@ -296,26 +296,9 @@ main {
 	align-items: center;
 	justify-content: space-between;
 	/* transition: all .3s linear; */
-	min-height: 207px;
-	/* min-height: 180px; */
+	min-height: 180px;
 	position: relative;
 	/* z-index: 10; */
-	/* background-color: red; */
-}
-.selection__base {
-	width: clamp(8em, 28vw, 9em);
-	height: clamp(8em, 28vw, 9em);
-
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.selection__base__circle {
-	width: clamp(5em, 12vw, 6em);
-	height: clamp(5em, 12vw, 6em);
-	border-radius: 50%;
-	background-color: var(--circle2);
 }
 
 .player {
@@ -325,19 +308,28 @@ main {
 .Ai {
 	grid-column: 2;
 	grid-row: 1;
+	/* background-image: radial-gradient(25em at 100% 0%, var(--RadialGradient)); */
 }
 
+/* .winner .bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40em;
+	height: 40em;
+	border-radius: 50%;
+	background-image: repeating-radial-gradient(circle, var(--circle2) 0, var(--circle1) 6em, var(--circle2) .1em, var(--circle1) .1em); 
+}	 */
 .results {
 	grid-column: 1/-1;
 	grid-row: 2;
-	clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
-	transition: all .4s linear;
+	/* clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%); */
+	transition: all .3s linear;
 	position: relative;
 	z-index: 10;
 }
-/* ! REMOVE============================================================ */
 .showResults {
-	clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+	/* clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%); */
 }
 .yourDestiny p {
 	text-transform: uppercase;
@@ -371,18 +363,26 @@ p.resultDeclaration {
 	color: var(--hoverText);
 }
 @media (min-width: 375px) {
-	/* .chooseYourWeapon {
+	.chooseYourWeapon {
 		max-width: 400px;
 		width: 100%;
+	}
+	/* .btn {
+		width: 10em;
+		height: 10em;
+	} */
+
+	/* .btn--imgContainer {
+		width: 8em;
+		height: 8em;
+	} */
+	/* .weapon {
+		width: initial;
 	} */
 }
 @media (min-width: 600px) {
-
 	main {
 		padding-inline: 2em;
-	}
-	.triangleArena {
-		margin-top: 0em;
 	}
 	.yourDestiny {
 		display: flex;
@@ -401,7 +401,6 @@ p.resultDeclaration {
 	}
 	.selectedWeapon {
 		flex-direction: column-reverse;
-		/* min-height: 180px; */
 	}
 	p.resultDeclaration {
 		font-size: 2rem;
