@@ -33,6 +33,48 @@
 	max-width: 1440px;
 	margin: 0 auto;
 }
+.cover {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+  background-image: radial-gradient(50em at 50% 0%, var(--RadialGradient));
+	display: grid;
+	place-items: center;
+	z-index: 100;
+}
+.cover__content {
+	color: var(--DarkText);
+	text-transform: uppercase;
+	text-align: center;
+	max-width: 350px;
+	width: 100%;
+	background-color: #fff;
+	border-radius: 8px;
+	padding: 1em;
+}
+.cover__content section {
+	display: flex;
+	justify-content: center;
+	gap: 1em;
+	flex-wrap: wrap;
+	margin-top: 1em;
+}
+.gameModeBtn {
+	padding: 1em 2em;
+	border-radius: 8px;
+	text-transform: uppercase;
+	font-weight: var(--fw-medium);
+	color: var(--circle2);
+
+}
+.gameModeBtn--normal {
+	background-image: linear-gradient(to left, var(--PaperGradient));
+}
+.gameModeBtn--hard {
+	background-image: linear-gradient(to left, var(--RockGradient));
+}
 button {
   background-color: transparent;
   border: 0;
@@ -72,13 +114,26 @@ main {
     padding: 0 2rem;
   }
 } */
-.fade-enter-from, .fade-leave-to {
+.slide-enter-from, .slide-leave-to {
   opacity: 0;
   transform: translateY(10px);
+}
+.slide-enter-active, .slide-leave-active {
+  transition: all .4s linear;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
 .fade-enter-active, .fade-leave-active {
   transition: all .4s linear;
 }
+.fade__group-enter-from, .fade__group-leave-to {
+  opacity: 0;
+}
+.fade__group-enter-active,.fade__group-move, .fade__group-leave-active {
+  transition: all .4s linear;
+}
+
 
 .chooseYourWeapon {
 	max-width: 400px;
@@ -129,6 +184,20 @@ main {
 	box-shadow:inset 0px 10px 1px -4px rgba(0, 0, 0, 0.2);
 	transition: all .3s linear;
 }
+.selection__base {
+	width: 5em;
+	height: 5em;
+	border-radius: 50%;
+	background-color: var(--circle2);
+	margin: auto 0;
+}
+.aiBg {
+	background-color: var(--DarkText);
+	width: 5em;
+	height: 5em;
+	border-radius: 50%;
+	display: inline-block;
+}
 .btn:active {
 	box-shadow: none;
 	transform: translateY(2px);
@@ -145,6 +214,7 @@ main {
 	grid-template-rows: repeat(2, auto);
 	gap: 2em;
 	row-gap: 3.5em;
+	transition: all .4s linear;
 	/* border: 1px solid; */
 }
 .selectedWeapon {
@@ -152,6 +222,8 @@ main {
 	flex-direction: column;
 	gap: 2em;
 	align-items: center;
+	justify-content: space-between;
+	/* transition: all .3s linear; */
 }
 .player {
 	grid-column: 1;
