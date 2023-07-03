@@ -33,6 +33,7 @@
 #app {
 	max-width: 1440px;
 	margin: 0 auto;
+	overflow: hidden;
 }
 .cover {
 	position: fixed;
@@ -172,6 +173,7 @@ main {
 	border: none;
 	transition: all .3s linear;
 	z-index: 10;
+	display: block;
 
 }
 
@@ -209,17 +211,23 @@ main {
 .selectedWeapon--btn__container {
 	position: relative;
 	/* background-color: red; */
-	display: grid;
+	/* display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: auto;
-	place-content: center;
+	place-content: center; */
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: clamp(8em, 28vw, 12em);
+	height: clamp(8em, 28vw, 12em);
 }
 .selectedWeapon--btn__container .btn {
 	grid-column: 1;
 	grid-row: 1;
 }
 /* winner */
-.winner .circle__container {
+/* .winner .circle__container {
 	width: 10em;
 	height: 10em;
 	position: absolute;
@@ -228,36 +236,76 @@ main {
 	grid-template-columns: 1fr;
 	grid-template-rows: auto;
 	place-content: center;
-}
-.winner .circle {
+} */
+
+/* .winner .circle {
 	grid-column: 1;
 	grid-row: 1;
 
 	background-color: var(--HeaderOutline);
 	margin: auto;
-	border-radius: 50%;
-}
-.winner .circle--sm {
+	border-radius: 50%; 
+}*/
+
+/* .winner .circle--sm {
 	width: clamp(10em, 28vw, 15em);
 	height: clamp(10em, 28vw, 15em);
 	z-index: 3;
 	opacity: .4;
-}
-.winner .circle--md {
+} */
+
+/* .winner .circle--md {
 	width: clamp(8em, 32vw, 22em);
 	height: clamp(8em, 32vw, 22em);
 
 	z-index: 2;
 	opacity: .2;
-}
-.winner .circle--lg {
+} */
+
+/* .winner .circle--lg {
 	width: clamp(8em, 40vw, 30em);
 	height: clamp(8em, 40vw, 30em);
 
 	z-index: 1;
 	opacity: .1;
-}
+} */
 
+.winner .pulse {
+	width: inherit;
+	height: inherit;
+
+	border-radius: 50%;
+	/* background-color: var(--HeaderOutline); */
+
+	position: absolute;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	place-content: center;
+	/* margin: auto; */
+}
+.winner .pulse span {
+	grid-column: 1;
+	grid-row: 1;
+	width: inherit;
+	height: inherit;
+	border-radius: inherit;
+	/* background-color: inherit; */
+	background-color: var(--HeaderOutline);
+	opacity: .8;
+
+	animation: pulsate 4s ease-out infinite;
+	animation-delay: calc(1s * var(--i));
+	
+	
+	/* margin: auto; */
+}
+@keyframes pulsate {
+	100% {
+		opacity: 0;
+		transform: scale(3);
+	}
+}
 /* ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
 
 /* .aiBg {
@@ -355,6 +403,7 @@ main {
 }
 p.resultDeclaration {
 	font-size: 2.5rem;
+	/* font-size: 1.2rem; */
 }
 .btn--reset {
 	color: var(--DarkText);

@@ -47,8 +47,9 @@
 			<div class="yourDestiny" v-else>
 				<transition-group name="fade__group" appear mode="in-out">
 					<section class="player selectedWeapon" key="1">
-						<div class="selectedWeapon--btn__container"
-						:class="{winner: result === 'win'}"
+						<div
+							class="selectedWeapon--btn__container"
+							:class="{ winner: result === 'win' }"
 						>
 							<button
 								class="btn btn--selectedWeapon"
@@ -63,14 +64,20 @@
 									/>
 								</span>
 							</button>
-							<div class="circle__container">
+							<!-- <div class="circle__container">
 								<div class="circle circle--sm"></div>
 								<div class="circle circle--md"></div>
 								<div class="circle circle--lg"></div>
+							</div> -->
+
+							<div class="pulse">
+								<span style="--i: 0"></span>
+								<span style="--i: 1"></span>
+								<span style="--i: 2"></span>
+								<span style="--i: 3"></span>
 							</div>
 						</div>
 						<p class="player--choice">You Picked</p>
-						<!-- <div class="bg"></div> -->
 					</section>
 
 					<section
@@ -92,19 +99,17 @@
 							play again
 						</button>
 					</section>
-					<!-- <transition name="slide">
-					</transition> -->
 
 					<section class="Ai selectedWeapon" key="3">
 						<transition name="fade" mode="out-in">
 							<div class="selection__base" v-if="!isAiWeaponSelected">
-							<div class="selection__base__circle"></div>
+								<div class="selection__base__circle"></div>
 							</div>
 
-							<div 
-							class="selectedWeapon--btn__container" 
-							:class="{winner: result === 'lose'}"
-							v-else
+							<div
+								class="selectedWeapon--btn__container"
+								:class="{ winner: result === 'lose' }"
+								v-else
 							>
 								<button class="btn" :class="`btn--${computerChoice}`" disabled>
 									<span class="btn--imgContainer">
@@ -116,10 +121,16 @@
 									</span>
 								</button>
 
-								<div class="circle__container">
+								<!-- <div class="circle__container">
 									<div class="circle circle--sm"></div>
 									<div class="circle circle--md"></div>
 									<div class="circle circle--lg"></div>
+								</div> -->
+								<div class="pulse">
+									<span style="--i: 0"></span>
+									<span style="--i: 1"></span>
+									<span style="--i: 2"></span>
+									<span style="--i: 3"></span>
 								</div>
 							</div>
 						</transition>

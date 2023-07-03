@@ -13,6 +13,7 @@ dist
 dist-ssr
 coverage
 *.local
+old_code
 
 /cypress/videos/
 /cypress/screenshots/
@@ -26,5 +27,3 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-
-sample
