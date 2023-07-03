@@ -3,34 +3,35 @@
 		<!-- select game level -->
 		<section class="cover" v-if="showCover">
 			<section class="cover__content">
-				<h1>Rock Paper Scissors</h1>
-				<p>game mode</p>
+				<!-- <h1>Rock Paper Scissors</h1> -->
+				<img src="@/assets/images/logo.svg" alt="logo">
+				<p>Choose Your Destiny</p>
 				<section>
 					<button 
 					type="button"
 					@click.prevent="setGameMode('normal')"
 					class="gameModeBtn gameModeBtn--normal"
 					>
-					normal
+					Earth
 				</button>
 					<button 
 					type="button"
 					@click.prevent="setGameMode('hard')"
 					class="gameModeBtn  gameModeBtn--hard"
 					>
-					hard
+					Mars
 				</button>
 				</section>
 			</section>
+			<!-- attribution -->
 		</section>
 		<!-- game starts -->
+		<!-- scoreboard -->
+		<ScoreBoard :score="score" :level="gameMode"/>
 		<template v-if="gameMode === 'normal'">
-			<!-- scoreboard -->
-			<ScoreBoard :score="score"/>
 	
 			<!-- Arena -->
-			<TriangleArena @score="(s)=> score = [...s]"/>
-			<!-- <TriangleArena @score="updateScore"/> -->
+			<TriangleArena @score="(s)=> score = [...s]" @gameMode="changeDifficulty"/>
 	
 			<!-- Rules -->
 			<button type="button" class="btn--rules" @click.prevent="showModal = true">
@@ -74,6 +75,10 @@ const setGameMode = (mode) => {
 	gameMode.value = mode;
 	showCover.value = false; 
 	// console.log(gameMode.value);
+}
+const changeDifficulty = () => {
+	showCover.value = true; 
+	gameMode.value = false;
 }
 
 </script>

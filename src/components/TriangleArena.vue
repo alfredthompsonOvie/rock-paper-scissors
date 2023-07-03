@@ -70,7 +70,7 @@
 								<div class="circle circle--lg"></div>
 							</div> -->
 
-							<div class="pulse">
+							<div class="pulse" v-if="isResultsReady">
 								<span style="--i: 0"></span>
 								<span style="--i: 1"></span>
 								<span style="--i: 2"></span>
@@ -95,9 +95,14 @@
 									: "draw"
 							}}
 						</p>
-						<button type="button" @click.prevent="playAgain" class="btn--reset">
-							play again
-						</button>
+						<div class="options">
+							<button type="button" @click.prevent="playAgain" class="btn--reset">
+								play again
+							</button>
+							<button type="button" @click.prevent="changeMode" class="btn--reset">
+								change mode
+							</button>
+						</div>
 					</section>
 
 					<section class="Ai selectedWeapon" key="3">
@@ -126,7 +131,7 @@
 									<div class="circle circle--md"></div>
 									<div class="circle circle--lg"></div>
 								</div> -->
-								<div class="pulse">
+								<div class="pulse" v-if="isResultsReady">
 									<span style="--i: 0"></span>
 									<span style="--i: 1"></span>
 									<span style="--i: 2"></span>
@@ -146,7 +151,7 @@
 <script setup>
 import { ref } from "vue";
 
-const emits = defineEmits(["score"]);
+const emits = defineEmits(["score", "gameMode"]);
 const playerChoice = ref("");
 const computerChoice = ref("");
 const result = ref("");
@@ -220,6 +225,9 @@ const playAgain = () => {
 	playerChoice.value = "";
 	computerChoice.value = "";
 };
+const changeMode = () => {
+	emits("gameMode")
+}
 </script>
 
 <style scoped></style>

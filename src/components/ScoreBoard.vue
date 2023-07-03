@@ -1,10 +1,12 @@
 <template>
   <section class="scoreBoard">
-    <h1 class="heading--scoreBoard">
+    <!-- <h1 class="heading--scoreBoard">
       <span>Rock</span>
       <span>Paper</span>
       <span>Scissors</span>
-    </h1>
+    </h1> -->
+    <img src="@/assets/images/logo.svg" alt="logo" v-if="level === 'normal'">
+    <img src="@/assets/images/logo-bonus.svg" alt="bonus logo" v-else>
     <section class="score">
       <p class="score--title">score</p>
       <p class="score--number">
@@ -21,6 +23,10 @@ import { watch, ref } from 'vue';
 const props = defineProps({
   score: {
     type: Array,
+    required: true
+  },
+  level: {
+    type: String,
     required: true
   }
 });

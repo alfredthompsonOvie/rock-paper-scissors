@@ -45,6 +45,9 @@
 	display: grid;
 	place-items: center;
 	z-index: 100;
+	/* background-image: url(./images/logo.svg);
+	background-repeat: no-repeat; */
+	padding: 1em;
 }
 .cover__content {
 	color: var(--DarkText);
@@ -52,30 +55,40 @@
 	text-align: center;
 	max-width: 350px;
 	width: 100%;
-	background-color: #fff;
+	background-color: var(--circle2);
 	border-radius: 8px;
 	padding: 1em;
 }
+.cover__content p {
+	font-style: italic;
+	font-size: .9rem;
+	margin-top: 2em;
+}
 .cover__content section {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	/* align-items: center; */
+	/* justify-content: center; */
 	gap: 1em;
-	flex-wrap: wrap;
+	/* flex-wrap: wrap; */
 	margin-top: 1em;
 }
 .gameModeBtn {
 	padding: 1em 2em;
 	border-radius: 8px;
-	text-transform: uppercase;
-	font-weight: var(--fw-medium);
-	color: var(--circle2);
+	/* text-transform: uppercase; */
+	letter-spacing: 2px;
 
+	/* font-weight: var(--fw-medium); */
+	color: var(--circle2);
+	color: #fff;
+	background-image: linear-gradient(to left, var(--PaperGradient));
+	display: block;
 }
 .gameModeBtn--normal {
-	background-image: linear-gradient(to left, var(--PaperGradient));
 }
 .gameModeBtn--hard {
-	background-image: linear-gradient(to left, var(--RockGradient));
+	/* background-image: linear-gradient(to left, var(--RockGradient)); */
 }
 button {
   background-color: transparent;
@@ -383,6 +396,7 @@ main {
 	position: relative;
 	z-index: 10;
 }
+
 /* ! REMOVE============================================================ */
 .showResults {
 	clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
@@ -405,11 +419,17 @@ p.resultDeclaration {
 	font-size: 2.5rem;
 	/* font-size: 1.2rem; */
 }
+.options {
+	display: flex;
+	flex-direction: column;
+	gap: .4em;
+	margin-bottom: 1em;
+}
 .btn--reset {
 	color: var(--DarkText);
 	background-color: #fff;
 	padding: 1em 3em;
-	margin-top: 1em;
+	/* margin-top: .5em; */
 	border-radius: 8px;
 	text-transform: uppercase;
 	font-weight: var(--fw-medium);
